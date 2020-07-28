@@ -66,7 +66,7 @@ set shiftwidth=2
 
 " mappings
 let mapleader = ' '
-inoremap {<CR> {<CR>}<Esc>ko
+inoremap {<CR> <CR>{<CR>}<Esc>ko
 nnoremap bn :bn<CR>
 nnoremap bp :bp<CR>
 nnoremap bd :bd<CR>

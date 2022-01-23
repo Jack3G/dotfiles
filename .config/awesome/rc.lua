@@ -557,10 +557,20 @@ awful.rules.rules = {
 
 
 -- {{{ Signals
+client.connect_signal("property::size", function(c)
+    if c.fullscreen then
+        c.shape = gears.shape.rectangle
+    else
+        c.shape = gears.shape.rounded_rect
+    end
+end)
+
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Add rounded corners
-    c.shape = gears.shape.rounded_rect
+    if not c.fullscreen then
+        c.shape = gears.shape.rounded_rect
+    end
 
     -- Set the windows at the slave,
     -- i.e. put it at the end of others instead of setting it master.
@@ -622,3 +632,35 @@ end)
 client.connect_signal("focus", function(c) c.border_color = beautiful.border_focus end)
 client.connect_signal("unfocus", function(c) c.border_color = beautiful.border_normal end)
 -- }}}
+
+
+-- A thing
+-- local timestep = 0.1
+-- local thing = 0
+
+-- gears.timer {
+--     timeout = timestep,
+--     call_now = true,
+--     autostart = true,
+--     callback = function()
+--         thing = thing + timestep*math.pi
+--         if thing > 4 * math.pi then
+--             thing = thing % 2*math.pi
+--         end
+
+--         for _, v in ipairs(client.get()) do
+--             if v.name == "Alacritty" then
+--                 v.shape = function(cr, w, h)
+--                     gears.shape.arc(
+--                         cr,
+--                         w,
+--                         h,
+--                         math.min(w, h) / 2,
+--                         (thing > 2*math.pi) and thing - 2*math.pi or 0,
+--                         (thing > 2*math.pi) and 0 or thing - 2*math.pi
+--                     )
+--                 end
+--             end
+--         end
+--     end
+-- }

@@ -265,22 +265,26 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     -- MY KEYS --
-    awful.key({modkey}, "#69", function() awful.util.spawn("i3lock-fancy") end,
-        {description = "lock computer", group = "custom"}),
-    awful.key({modkey}, "r", function() awful.util.spawn("rofi -show run") end,
-            {description = "open rofi", group = "custom"}),
+    awful.key({ modkey }, "#69", function() awful.util.spawn("i3lock-fancy") end,
+        { description = "lock computer", group = "custom" }),
+    awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("rofi -show run") end,
+        { description = "open rofi", group = "custom" }),
     -------------
 
-    awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
-              {description="show help", group="awesome"}),
-    awful.key({ modkey,           }, "Left",   awful.tag.viewprev,
-              {description = "view previous", group = "tag"}),
-    awful.key({ modkey,           }, "Right",  awful.tag.viewnext,
-              {description = "view next", group = "tag"}),
-    awful.key({ modkey,           }, "Escape", awful.tag.history.restore,
-              {description = "go back", group = "tag"}),
+    awful.key({ modkey }, "s",      hotkeys_popup.show_help,
+        { description="show help", group="awesome" }),
 
-    awful.key({ modkey,           }, "j",
+    awful.key({ modkey }, "Left",   awful.tag.viewprev,
+        { description = "view previous", group = "tag" }),
+
+    awful.key({ modkey }, "Right",  awful.tag.viewnext,
+        { description = "view next", group = "tag" }),
+
+    awful.key({ modkey }, "Escape", awful.tag.history.restore,
+        { description = "go back", group = "tag" }),
+
+
+    awful.key({ modkey }, "j",
         function ()
             awful.client.focus.byidx( 1)
         end,
@@ -353,7 +357,7 @@ globalkeys = gears.table.join(
               {description = "restore minimized", group = "client"}),
 
     -- Prompt
-    awful.key({ modkey, "Shift" },            "r",     function () awful.screen.focused().mypromptbox:run() end,
+    awful.key({ modkey }, "r", function () awful.screen.focused().mypromptbox:run() end,
               {description = "run prompt", group = "launcher"}),
 
     awful.key({ modkey }, "x",
@@ -549,7 +553,7 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 
-    {rule = {class = "Firefox"}, properties = {tag = "web"}},
+    {rule = {class = "firefox"}, properties = {tag = "web"}},
     {rule = {class = "Steam"}, properties = {tag = "games", switchtotag = true}},
 }
 -- }}}

@@ -11,7 +11,7 @@ path = [
 ]
 
 startup = [
-    "alias ls = exa -l",
+    "alias ls = exa -l --group-directories-first",
     "alias dotfiles = git --git-dir ~/dotfiles --work-tree ~",
 ]
 

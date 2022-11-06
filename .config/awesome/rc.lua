@@ -266,8 +266,17 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     -- MY KEYS --
-    awful.key({ modkey }, "#69", function() awful.util.spawn("i3lock-fancy") end,
-        { description = "lock computer", group = "custom" }),
+    awful.key({ modkey }, "#69", function()
+            awful.util.spawn("betterlockscreen -l")
+        end,
+        { description = "lock computer", group = "custom" }
+    ),
+    awful.key({ modkey, "Shift" }, "#69", function()
+            awful.spawn.spawn("bash -c 'systemctl suspend && betterlockscreen -l'")
+        end,
+        { description = "lock + sleep computer", group = "custom" }
+    ),
+
     awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("rofi -show run") end,
         { description = "open rofi", group = "custom" }),
     -------------

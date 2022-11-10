@@ -430,7 +430,7 @@ shell:
   # program: /bin/bash
   # args:
   #   - --login
-  program: /usr/bin/nu
+  program: nu
 
 # Startup directory
 #

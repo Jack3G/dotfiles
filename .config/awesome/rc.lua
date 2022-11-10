@@ -266,20 +266,37 @@ root.buttons(gears.table.join(
 -- {{{ Key bindings
 globalkeys = gears.table.join(
     -- MY KEYS --
+
+    -- #69 = f3
     awful.key({ modkey }, "#69", function()
             awful.util.spawn("betterlockscreen -l")
         end,
-        { description = "lock computer", group = "custom" }
-    ),
+        { description = "lock computer", group = "custom" }),
+
     awful.key({ modkey, "Shift" }, "#69", function()
             awful.spawn.spawn("bash -c 'systemctl suspend && betterlockscreen -l'")
         end,
-        { description = "lock + sleep computer", group = "custom" }
-    ),
+        { description = "lock + sleep computer", group = "custom" }),
 
-    awful.key({ modkey, "Shift" }, "r", function() awful.util.spawn("rofi -show run") end,
+
+    -- #017 = print screen
+    awful.key({ modkey }, "#107", function()
+            awful.spawn.spawn("flameshot full")
+        end,
+        { description = "take a (full) screenshot", group = "custom" }),
+
+    awful.key({ modkey, "Shift" }, "s", function()
+            awful.spawn.spawn("flameshot gui")
+        end,
+        { description = "take a partial screenshot", group = "custom" }),
+
+
+    awful.key({ modkey, "Shift" }, "r", function()
+            awful.util.spawn("rofi -show run")
+        end,
         { description = "open rofi", group = "custom" }),
     -------------
+
 
     awful.key({ modkey }, "s",      hotkeys_popup.show_help,
         { description="show help", group="awesome" }),

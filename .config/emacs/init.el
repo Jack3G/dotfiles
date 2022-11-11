@@ -26,8 +26,12 @@
   (require 'evil)
   (evil-mode 1))
 
+(use-package lua-mode)
+
 
 (load-theme 'tango-dark)
+
+(set-face-attribute 'default t :font "JetBrainsMono" :height 120)
 
 (setq default-frame-alist
       '((tool-bar-lines . 0)

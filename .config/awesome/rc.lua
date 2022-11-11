@@ -227,9 +227,17 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({ position = "top", screen = s })
+    s.mywibox = awful.wibar({
+        screen = s,
+        position = "top",
+        ontop = true,
+        height = 25, -- default is 22.5
+    })
+
 
     -- Add widgets to the wibox
+    local ram_widget = require("awesome-wm-widgets/ram-widget/ram-widget")
+
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
         { -- Left widgets
@@ -243,6 +251,7 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
+            ram_widget(),
             mytextclock,
             s.mylayoutbox,
         },

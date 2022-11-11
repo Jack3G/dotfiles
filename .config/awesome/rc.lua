@@ -230,7 +230,7 @@ awful.screen.connect_for_each_screen(function(s)
     s.mywibox = awful.wibar({
         screen = s,
         position = "top",
-        ontop = true,
+        ontop = false,
         height = 25, -- default is 22.5
     })
 

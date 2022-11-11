@@ -274,12 +274,13 @@ globalkeys = gears.table.join(
         { description = "lock computer", group = "custom" }),
 
     awful.key({ modkey, "Shift" }, "#69", function()
-            awful.spawn.spawn("bash -c 'systemctl suspend && betterlockscreen -l'")
+            awful.spawn.spawn("systemctl suspend")
+            awful.spawn.spawn("betterlockscreen -l")
         end,
         { description = "lock + sleep computer", group = "custom" }),
 
 
-    -- #017 = print screen
+    -- #107 = print screen
     awful.key({ modkey }, "#107", function()
             awful.spawn.spawn("flameshot full")
         end,

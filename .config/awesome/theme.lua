@@ -7,8 +7,8 @@ local dpi = require("beautiful.xresources").apply_dpi
 
 local theme = {}
 
--- theme.wallpaper = themes_path .. "zenburn/zenburn-background.png"
-theme.wallpaper = "~/Pictures/escape-wallpaper.jpg"
+theme.wallpaper = themes_path .. "zenburn/zenburn-background.png"
+-- theme.wallpaper = "~/Pictures/escape-wallpaper.jpg"
 
 -- {{{ Styles
 theme.font      = "Fira Code Nerd Font Mono 10"

@@ -593,8 +593,14 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 
-    {rule = {class = "firefox"}, properties = {tag = "web"}},
-    {rule = {class = "Steam"}, properties = {tag = "games", switchtotag = true}},
+    { rule = { class = "firefox" }, properties = {
+        tag = "web",
+        maximized = true,
+        shape = gears.shape.rect,
+        border_width = 0,
+    }},
+    { rule = { class = "Steam" },
+        properties = { tag = "games", switchtotag = true }},
 }
 -- }}}
 
@@ -602,7 +608,7 @@ awful.rules.rules = {
 
 -- {{{ Signals
 client.connect_signal("property::size", function(c)
-    if c.fullscreen then
+    if c.fullscreen or c.maximized then
         c.shape = gears.shape.rectangle
     else
         c.shape = gears.shape.rounded_rect
@@ -612,7 +618,7 @@ end)
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function (c)
     -- Add rounded corners
-    if not c.fullscreen then
+    if not (c.fullscreen or c.maximized) then
         c.shape = gears.shape.rounded_rect
     end
 

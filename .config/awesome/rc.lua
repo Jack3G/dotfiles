@@ -593,7 +593,7 @@ awful.rules.rules = {
     -- { rule = { class = "Firefox" },
     --   properties = { screen = 1, tag = "2" } },
 
-    { rule = { class = "firefox" }, properties = {
+    { rule = { name = "Mozilla Firefox" }, properties = {
         tag = "web",
         maximized = true,
         shape = gears.shape.rect,

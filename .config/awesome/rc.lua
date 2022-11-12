@@ -237,6 +237,8 @@ awful.screen.connect_for_each_screen(function(s)
 
     -- Add widgets to the wibox
     local ram_widget = require("awesome-wm-widgets/ram-widget/ram-widget")
+    local net_speed_widget = require(
+        "awesome-wm-widgets/net-speed-widget/net-speed")
 
     s.mywibox:setup {
         layout = wibox.layout.align.horizontal,
@@ -251,7 +253,8 @@ awful.screen.connect_for_each_screen(function(s)
             layout = wibox.layout.fixed.horizontal,
             mykeyboardlayout,
             wibox.widget.systray(),
-            ram_widget(),
+            -- net_speed_widget({ timeout = 0.5 }),
+            ram_widget({ timeout = 2 }),
             mytextclock,
             s.mylayoutbox,
         },
@@ -434,25 +437,25 @@ clientkeys = gears.table.join(
             -- The client currently has the input focus, so it cannot be
             -- minimized, since minimized clients can't have the focus.
             c.minimized = true
-        end ,
+        end,
         {description = "minimize", group = "client"}),
     awful.key({ modkey,           }, "m",
         function (c)
             c.maximized = not c.maximized
             c:raise()
-        end ,
+        end,
         {description = "(un)maximize", group = "client"}),
     awful.key({ modkey, "Control" }, "m",
         function (c)
             c.maximized_vertical = not c.maximized_vertical
             c:raise()
-        end ,
+        end,
         {description = "(un)maximize vertically", group = "client"}),
     awful.key({ modkey, "Shift"   }, "m",
         function (c)
             c.maximized_horizontal = not c.maximized_horizontal
             c:raise()
-        end ,
+        end,
         {description = "(un)maximize horizontally", group = "client"})
 )
 

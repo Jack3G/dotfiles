@@ -11,7 +11,7 @@ theme.wallpaper = themes_path .. "zenburn/zenburn-background.png"
 -- theme.wallpaper = "~/Pictures/escape-wallpaper.jpg"
 
 -- {{{ Styles
-theme.font      = "Fira Code Nerd Font Mono 10"
+theme.font = "JetBrainsMono 11.5"
 
 -- {{{ Colors
 theme.fg_normal  = "#DCDCCC"

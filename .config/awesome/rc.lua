@@ -596,8 +596,9 @@ awful.rules.rules = {
     { rule = { name = "Mozilla Firefox" }, properties = {
         tag = "web",
         maximized = true,
-        shape = gears.shape.rect,
-        border_width = 0,
+    }},
+    { rule = { name = "Picture-in-Picture" }, properties = {
+        sticky = true,
     }},
     { rule = { class = "Steam" },
         properties = { tag = "games", switchtotag = true }},
@@ -610,8 +611,10 @@ awful.rules.rules = {
 client.connect_signal("property::size", function(c)
     if c.fullscreen or c.maximized then
         c.shape = gears.shape.rectangle
+        -- c.border_width = 0
     else
         c.shape = gears.shape.rounded_rect
+        c.border_width = beautiful.border_width
     end
 end)
 

@@ -31,7 +31,9 @@
 
 (load-theme 'tango-dark)
 
-(set-face-attribute 'default t :font "JetBrainsMono" :height 120)
+(if (eq system-type 'windows-nt)
+    (set-face-attribute 'default t :font "JetBrainsMono Nerd Font" :height 120)
+    (set-face-attribute 'default t :font "JetBrainsMono" :height 120))
 
 (setq default-frame-alist
       '((tool-bar-lines . 0)

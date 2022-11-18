@@ -51,6 +51,7 @@
  version-control t)
 
 (setq-default indent-tabs-mode nil)
+(setq-default buffer-file-coding-system 'utf-8-unix)
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror 'nomessage)

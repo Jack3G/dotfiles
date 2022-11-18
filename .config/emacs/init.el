@@ -28,10 +28,17 @@
   :config
   (evil-mode 1))
 
+(use-package magit)
+
 (use-package lua-mode)
+(use-package org)
+
+(use-package autothemer)
+(use-package catppuccin-theme
+  :after autothemer)
 
 
-(load-theme 'tango-dark)
+(load-theme 'catppuccin-macchiato)
 
 (if (eq system-type 'windows-nt)
     (set-face-attribute 'default t :font "JetBrainsMono Nerd Font" :height 120)

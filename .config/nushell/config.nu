@@ -532,4 +532,4 @@ alias dotfiles = git --git-dir ~/dotfiles/ --work-tree ~
 # EMacsClient
 alias emc = emacsclient -n
 # This would have been emcf for EMacsClientFrame, but emcs is easier to type
-alias emcs = emacsclient -n -e "(make-frame)"
+alias emcs = emacsclient -n -e "(progn)"

@@ -48,6 +48,13 @@
       '((tool-bar-lines . 0)
         (vertical-scroll-bars . nil)))
 
+(setq-default indent-tabs-mode nil)
+(setq-default buffer-file-coding-system 'utf-8-unix)
+
+(setq display-line-numbers-type 'relative)
+(global-display-line-numbers-mode)
+
+
 ;; yoink https://www.emacswiki.org/emacs/BackupDirectory
 (setq
  backup-by-copying t
@@ -56,9 +63,6 @@
  kept-new-versions 6
  kept-old-versions 2
  version-control t)
-
-(setq-default indent-tabs-mode nil)
-(setq-default buffer-file-coding-system 'utf-8-unix)
 
 (setq custom-file (locate-user-emacs-file "custom.el"))
 (load custom-file 'noerror 'nomessage)

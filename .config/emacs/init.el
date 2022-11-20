@@ -44,6 +44,7 @@
     (set-face-attribute 'default t :font "JetBrainsMono Nerd Font" :height 120)
     (set-face-attribute 'default t :font "JetBrainsMono" :height 120))
 
+
 (setq default-frame-alist
       '((tool-bar-lines . 0)
         (vertical-scroll-bars . nil)))
@@ -53,6 +54,10 @@
 
 (setq display-line-numbers-type 'relative)
 (global-display-line-numbers-mode)
+
+(column-number-mode)
+
+(setq-default fill-column 80)
 
 
 ;; yoink https://www.emacswiki.org/emacs/BackupDirectory

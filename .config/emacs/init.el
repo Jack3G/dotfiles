@@ -15,6 +15,9 @@
 (require 'use-package-ensure)
 (setq use-package-always-ensure t)
 
+(setq custom-file (locate-user-emacs-file "custom.el"))
+(load custom-file 'noerror 'nomessage)
+
 
 (use-package auto-package-update
   :config
@@ -68,6 +71,3 @@
  kept-new-versions 6
  kept-old-versions 2
  version-control t)
-
-(setq custom-file (locate-user-emacs-file "custom.el"))
-(load custom-file 'noerror 'nomessage)

@@ -25,6 +25,12 @@
   (setq auto-package-update-hide-results t))
 
 
+;;; dependencies
+(use-package autothemer)
+(use-package all-the-icons)
+
+
+;;; functionality
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t)
@@ -34,17 +40,28 @@
 (use-package magit)
 
 (use-package dashboard
+  :init
+  (setq dashboard-startup-banner 'logo)
+  (setq dashboard-footer-icon (all-the-icons-faicon "angle-right"
+                                                    :height 1.1
+                                                    :v-adjust -0.05
+                                                    :face 'font-lock-keyword-face))
   :config
-  (dashboard-setup-startup-hook))
+  (dashboard-setup-startup-hook)
+  :after all-the-icons)
 
+
+;;; languages
 (use-package lua-mode)
 (use-package org)
 
-(use-package autothemer)
+
+;;; looks
 (use-package catppuccin-theme
   :after autothemer)
 
 
+;;; settings
 (load-theme 'catppuccin-macchiato)
 
 (if (eq system-type 'windows-nt)

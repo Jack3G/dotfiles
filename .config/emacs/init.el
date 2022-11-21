@@ -64,9 +64,17 @@
 ;;; settings
 (load-theme 'catppuccin-macchiato)
 
-(if (eq system-type 'windows-nt)
-    (set-face-attribute 'default t :font "JetBrainsMono Nerd Font" :height 120)
-    (set-face-attribute 'default t :font "JetBrainsMono" :height 120))
+(defun config-setup-fonts ()
+  (if (eq system-type 'windows-nt)
+      (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 120)
+    (set-face-attribute 'default nil :font "JetBrainsMono" :height 120)))
+
+(if (daemonp)
+    (add-hook 'after-make-frame-functions
+              (lambda (frame)
+                (with-selected-frame frame
+                  (config-setup-fonts))))
+  (config-setup-fonts))
 
 (setq default-frame-alist
       '((tool-bar-lines . 0)

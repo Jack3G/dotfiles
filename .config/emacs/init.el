@@ -66,6 +66,10 @@
 
 (setq-default fill-column 80)
 
+(setq
+ scroll-conservatively 10000
+ scroll-margin 2)
+
 
 ;; yoink https://www.emacswiki.org/emacs/BackupDirectory
 (setq

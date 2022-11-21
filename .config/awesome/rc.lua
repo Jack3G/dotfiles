@@ -600,14 +600,20 @@ awful.rules.rules = {
     { rule = { name = "Picture-in-Picture" }, properties = {
         sticky = true,
     }},
-    { rule = { class = "Steam" },
-        properties = { tag = "games", switchtotag = true }},
+    { rule = { class = "Steam" }, properties = {
+        tag = "games",
+    }},
 }
 -- }}}
 
 
 
 -- {{{ Signals
+client.connect_signal("property::urgent", function(c)
+    c.minimized = false
+    c:jump_to()
+end)
+
 client.connect_signal("property::size", function(c)
     if c.fullscreen or c.maximized then
         c.shape = gears.shape.rectangle

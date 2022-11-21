@@ -33,6 +33,10 @@
 
 (use-package magit)
 
+(use-package dashboard
+  :config
+  (dashboard-setup-startup-hook))
+
 (use-package lua-mode)
 (use-package org)
 
@@ -47,10 +51,10 @@
     (set-face-attribute 'default t :font "JetBrainsMono Nerd Font" :height 120)
     (set-face-attribute 'default t :font "JetBrainsMono" :height 120))
 
-
 (setq default-frame-alist
       '((tool-bar-lines . 0)
         (vertical-scroll-bars . nil)))
+(setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 
 (setq-default indent-tabs-mode nil)
 (setq-default buffer-file-coding-system 'utf-8-unix)

@@ -34,6 +34,7 @@
 (use-package evil
   :init
   (setq evil-want-C-u-scroll t)
+  (setq evil-want-keybinding nil)
   :config
   (evil-mode 1))
 
@@ -50,10 +51,19 @@
   (dashboard-setup-startup-hook)
   :after all-the-icons)
 
+(use-package evil-collection
+  :config
+  (evil-collection-init))
+
+(use-package projectile
+  :config
+  (projectile-mode +1))
+
 
 ;;; languages
 (use-package lua-mode)
 (use-package org)
+(use-package gdscript-mode)
 
 
 ;;; looks
@@ -104,3 +114,20 @@
  kept-new-versions 6
  kept-old-versions 2
  version-control t)
+
+(defvar ibuffer-saved-filter-groups
+  '(("home"
+     ("emacs-config" (or (filename . "init.el")))
+     ("Org Mode" (or (mode . org-mode)))
+     ("Help" (or (name . "\*Help\*")
+                 (name . "\*Apropos\*")
+                 (name . "\*info\*"))))))
+
+
+;; Keybindings
+(evil-set-leader 'normal (kbd "SPC"))
+(evil-define-key 'normal 'global (kbd "<leader>oa") 'org-agenda)
+(evil-define-key 'visual 'global (kbd "gc") 'comment-region)
+(evil-define-key 'normal 'global (kbd "<leader>p") 'projectile-command-map)
+
+(global-set-key (kbd "C-x C-b") 'ibuffer)

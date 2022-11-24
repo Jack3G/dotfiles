@@ -123,11 +123,21 @@
                  (name . "\*Apropos\*")
                  (name . "\*info\*"))))))
 
+;; https://stackoverflow.com/a/9697222
+(defun comment-or-uncomment-region-or-line ()
+    "Comments or uncomments the region or the current line if there's no active region."
+    (interactive)
+    (let (beg end)
+        (if (region-active-p)
+            (setq beg (region-beginning) end (region-end))
+            (setq beg (line-beginning-position) end (line-end-position)))
+        (comment-or-uncomment-region beg end)))
+
 
 ;; Keybindings
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-define-key 'normal 'global (kbd "<leader>oa") 'org-agenda)
-(evil-define-key 'visual 'global (kbd "gc") 'comment-region)
+(evil-define-key '(normal visual) 'global (kbd "gc") 'comment-or-uncomment-region-or-line)
 (evil-define-key 'normal 'global (kbd "<leader>p") 'projectile-command-map)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)

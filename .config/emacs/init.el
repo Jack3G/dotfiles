@@ -115,13 +115,24 @@
  kept-old-versions 2
  version-control t)
 
-(defvar ibuffer-saved-filter-groups
+(setq ibuffer-saved-filter-groups
   '(("home"
-     ("emacs-config" (or (filename . "init.el")))
-     ("Org Mode" (or (mode . org-mode)))
+     ("My Config" (or (filename . "init.el")))
+     ;; ("Org Mode" (or (mode . org-mode)))
      ("Help" (or (name . "\*Help\*")
                  (name . "\*Apropos\*")
-                 (name . "\*info\*"))))))
+                 (name . "\*info\*")))
+     ("School" (or (filename . "school")))
+     ("Builtin" (or (name . "\*scratch\*")
+                    (name . "\*Messages\*")
+                    (name . "\*Completions\*")
+                    (name . "\*Backtrace\*")
+                    (name . "\*Compile-Log\*"))))))
+
+(add-hook 'ibuffer-mode-hook
+          '(lambda ()
+             (ibuffer-switch-to-saved-filter-groups "home")))
+
 
 ;; https://stackoverflow.com/a/9697222
 (defun comment-or-uncomment-region-or-line ()

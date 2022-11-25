@@ -69,6 +69,9 @@
 ;;; looks
 (use-package catppuccin-theme
   :after autothemer)
+(use-package rainbow-delimiters
+  :config
+  (rainbow-delimiters-mode 1))
 
 
 ;;; settings

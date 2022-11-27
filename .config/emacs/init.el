@@ -49,7 +49,8 @@
                                                     :face 'font-lock-keyword-face))
   :config
   (dashboard-setup-startup-hook)
-  :after all-the-icons)
+  :after all-the-icons
+  :after page-break-lines)
 
 (use-package evil-collection
   :config
@@ -72,6 +73,9 @@
 (use-package rainbow-delimiters
   :config
   (rainbow-delimiters-mode 1))
+(use-package page-break-lines
+  :config
+  (global-page-break-lines-mode))
 
 
 ;;; settings

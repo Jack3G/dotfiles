@@ -64,22 +64,41 @@
   :config
   (projectile-mode +1))
 
+(use-package calfw)
+
 
 ;;; languages
 (use-package lua-mode)
-(use-package org)
+(use-package org
+  :init
+  ;; https://lucidmanager.org/productivity/ricing-org-mode/
+  (setq org-startup-indented t
+        org-pretty-entities t
+        org-hide-emphasis-markers t
+        org-startup-with-inline-images t
+        org-hide-leading-stars t))
 (use-package gdscript-mode)
 
 
 ;;; looks
 (use-package catppuccin-theme
   :after autothemer)
+
 (use-package rainbow-delimiters
   :config
   (rainbow-delimiters-mode 1))
+
 (use-package page-break-lines
   :config
   (global-page-break-lines-mode))
+
+(use-package mixed-pitch
+  :hook
+  (text-mode . mixed-pitch-mode))
+
+(use-package org-appear
+  :hook
+  (org-mode . org-appear-mode))
 
 
 ;;; settings
@@ -88,7 +107,9 @@
 (defun config-setup-fonts ()
   (if (eq system-type 'windows-nt)
       (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 120)
-    (set-face-attribute 'default nil :font "JetBrainsMono" :height 120)))
+    (set-face-attribute 'default nil :font "JetBrainsMono" :height 120))
+  ;; (set-face-attribute 'variable-pitch nil :font "Lora" :height 130))
+  (set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 135))
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions

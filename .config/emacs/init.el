@@ -47,10 +47,14 @@
                                                     :height 1.1
                                                     :v-adjust -0.05
                                                     :face 'font-lock-keyword-face))
+  (setq dashboard-items '((agenda . 4)
+                          (projects . 4)))
+  (setq dashboard-set-heading-icons t)
+  (setq dashboard-set-file-icons t)
+  (setq dashboard-page-separator "\n\f\n")
   :config
   (dashboard-setup-startup-hook)
-  :after all-the-icons
-  :after page-break-lines)
+  :after (all-the-icons page-break-lines))
 
 (use-package evil-collection
   :config

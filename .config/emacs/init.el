@@ -99,6 +99,9 @@
 (use-package org-appear
   :hook
   (org-mode . org-appear-mode))
+(use-package org-superstar
+  :hook
+  (org-mode . org-superstar-mode))
 
 
 ;;; settings

@@ -122,6 +122,8 @@
  kept-old-versions 2
  version-control t)
 
+
+;; IBuffer
 (setq ibuffer-saved-filter-groups
   '(("home"
      ("My Config" (or (filename . "init.el")))
@@ -138,7 +140,10 @@
 
 (add-hook 'ibuffer-mode-hook
           '(lambda ()
-             (ibuffer-switch-to-saved-filter-groups "home")))
+             (ibuffer-switch-to-saved-filter-groups "home")
+             (ibuffer-auto-mode 1)))
+
+(setq ibuffer-expert t)
 
 
 ;; https://stackoverflow.com/a/9697222

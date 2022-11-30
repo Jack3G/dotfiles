@@ -99,6 +99,9 @@
 (use-package org-appear
   :hook
   (org-mode . org-appear-mode))
+(use-package org-superstar
+  :hook
+  (org-mode . org-superstar-mode))
 
 
 ;;; settings
@@ -109,7 +112,8 @@
       (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 120)
     (set-face-attribute 'default nil :font "JetBrainsMono" :height 120))
   ;; (set-face-attribute 'variable-pitch nil :font "Lora" :height 130))
-  (set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 135))
+  ;; (set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 135))
+  (set-face-attribute 'variable-pitch nil :font "IBM Plex Serif" :height 130))
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions

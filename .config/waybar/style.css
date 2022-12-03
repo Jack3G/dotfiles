@@ -91,7 +91,8 @@ button:hover {
 #mpd {
     padding: 0 10px;
     color: #ffffff;
-    margin-bottom: 3px;
+    margin: 5px 0;
+    border-radius: 4px;
 }
 
 #window,
@@ -278,5 +279,5 @@ label:focus {
 }
 
 #scratchpad.empty {
-	background-color: transparent;
+    background-color: transparent;
 }

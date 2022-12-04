@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
-    font-family: FontAwesome, JetBrains Mono;
+    font-family: Hack Nerd Font, FontAwesome, JetBrains Mono;
     font-size: 16px;
 }
 
@@ -289,7 +289,7 @@ label:focus {
     color: rgb(40, 200, 255);
     background-color: rgba(100, 114, 125, 0.5);
     border-radius: 0 20px 0 0;
-    font-size: 27;
-    padding: 0 7px;
+    padding-right: 13px;
+    padding-left: 7px;
     margin-right: 5px;
 }

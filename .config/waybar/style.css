@@ -1,7 +1,7 @@
 * {
     /* `otf-font-awesome` is required to be installed for icons */
     /* font-family: FontAwesome, Roboto, Helvetica, Arial, sans-serif; */
-    font-family: JetBrains Mono;
+    font-family: FontAwesome, JetBrains Mono;
     font-size: 16px;
 }
 
@@ -92,7 +92,7 @@ button:hover {
     padding: 0 10px;
     color: #ffffff;
     margin: 5px 0;
-    border-radius: 4px;
+    border-radius: 5px;
 }
 
 #window,
@@ -280,4 +280,15 @@ label:focus {
 
 #scratchpad.empty {
     background-color: transparent;
+}
+
+
+#custom-logo {
+    /* got this from #archnavbar div on archlinux.org */
+    color: rgb(0, 129, 194);
+    background-color: rgba(100, 114, 125, 0.5);
+    border-radius: 0 20px 0 0;
+    font-size: 27;
+    padding: 0 7px;
+    margin-right: 5px;
 }

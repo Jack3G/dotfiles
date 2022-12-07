@@ -141,7 +141,11 @@
  scroll-conservatively 10000
  scroll-margin 2)
 
-(setq ispell-program-name "aspell")
+(setq ring-bell-function 'ignore)
+
+(setq
+ ispell-dictionary "british"
+ ispell-program-name "aspell")
 
 
 ;; yoink https://www.emacswiki.org/emacs/BackupDirectory

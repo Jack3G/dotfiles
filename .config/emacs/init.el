@@ -69,6 +69,7 @@
 
 ;;; languages
 (use-package lua-mode)
+
 (use-package org
   :init
   ;; https://lucidmanager.org/productivity/ricing-org-mode/
@@ -76,7 +77,14 @@
         org-pretty-entities t
         org-hide-emphasis-markers t
         org-startup-with-inline-images t
-        org-hide-leading-stars t))
+        org-hide-leading-stars t
+        org-hidden-keywords '(title))
+  (set-face-attribute 'org-level-8 nil :weight 'bold :inherit 'default)
+  (set-face-attribute 'org-document-title nil
+                      :height 2.0
+                      :foreground 'unspecified
+                      :inherit 'org-level-8))
+
 (use-package gdscript-mode)
 
 
@@ -100,6 +108,9 @@
   :hook
   (org-mode . org-appear-mode))
 (use-package org-superstar
+  :init
+  (setq org-superstar-headline-bullets-list '("◉" "◈" "○" "▷")
+        org-superstar-cycle-headline-bullets nil)
   :hook
   (org-mode . org-superstar-mode))
 

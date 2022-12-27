@@ -15,3 +15,4 @@ eval "$(starship init bash)"
 
 alias ls="exa -la --icons --git --group-directories-first"
 alias dotfiles="git --work-tree $HOME --git-dir $HOME/dotfiles"
+alias du="du --summarize --human-readable"

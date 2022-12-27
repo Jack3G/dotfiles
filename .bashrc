@@ -13,5 +13,5 @@ export EDITOR=nvim
 eval "$(starship init bash)"
 
 
-alias ls="exa -la --icons --git"
+alias ls="exa -la --icons --git --group-directories-first"
 alias dotfiles="git --work-tree $HOME --git-dir $HOME/dotfiles"

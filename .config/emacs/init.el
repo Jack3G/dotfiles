@@ -205,6 +205,20 @@
         (comment-or-uncomment-region beg end)))
 
 
+(defun log-entry ()
+  (interactive)
+
+  (setq plain-date-string (format-time-string "%F"))
+  (setq filename (concat "~/log/" plain-date-string ".org"))
+  (setq exists (file-exists-p filename))
+
+  (find-file filename)
+
+  (unless exists
+    (insert (concat "#+title:" plain-date-string "\n"
+                    "#+date: " (format-time-string "%FT%T%z") "\n\n"))))
+
+
 ;; Keybindings
 (evil-set-leader 'normal (kbd "SPC"))
 (evil-define-key 'normal 'global (kbd "<leader>oa") 'org-agenda)

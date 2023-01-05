@@ -138,6 +138,8 @@
         (vertical-scroll-bars . nil)))
 (setq initial-buffer-choice (lambda () (get-buffer-create "*dashboard*")))
 
+(menu-bar-mode -1)
+
 (setq-default indent-tabs-mode nil)
 (setq-default buffer-file-coding-system 'utf-8-unix)
 

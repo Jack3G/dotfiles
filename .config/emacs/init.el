@@ -78,18 +78,16 @@
         org-hide-emphasis-markers t
         org-startup-with-inline-images t
         org-hide-leading-stars t
-        org-hidden-keywords '(title))
-  (set-face-attribute 'org-level-8 nil :weight 'bold :inherit 'default)
-  (set-face-attribute 'org-document-title nil
-                      :height 2.0
-                      :foreground 'unspecified
-                      :inherit 'org-level-8))
+        org-hidden-keywords '(title)))
 
 (use-package gdscript-mode)
 
 
 ;;; looks
 (use-package catppuccin-theme
+  :config
+  (setq catppuccin-flavour 'macchiato)
+  (catppuccin-reload)
   :after autothemer)
 
 (use-package rainbow-delimiters
@@ -105,6 +103,8 @@
   (text-mode . mixed-pitch-mode))
 
 (use-package org-appear
+  :config
+  (setq org-appear-autolinks t)
   :hook
   (org-mode . org-appear-mode))
 (use-package org-superstar
@@ -116,7 +116,7 @@
 
 
 ;;; settings
-(load-theme 'catppuccin-macchiato)
+(load-theme 'catppuccin t)
 
 (defun config-setup-fonts ()
   (if (eq system-type 'windows-nt)

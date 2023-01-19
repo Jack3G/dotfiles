@@ -82,6 +82,8 @@
 
 (use-package gdscript-mode)
 
+(use-package rust-mode)
+
 
 ;;; looks
 (use-package catppuccin-theme

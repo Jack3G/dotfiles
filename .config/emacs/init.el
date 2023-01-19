@@ -116,9 +116,11 @@
   :hook
   (org-mode . org-superstar-mode))
 
+(use-package doom-themes)
+
 
 ;;; settings
-(load-theme 'catppuccin t)
+(load-theme 'doom-one t)
 
 (defun config-setup-fonts ()
   (if (eq system-type 'windows-nt)

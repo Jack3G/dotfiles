@@ -201,7 +201,7 @@
                     (name . "\*Compile-Log\*"))))))
 
 (add-hook 'ibuffer-mode-hook
-          '(lambda ()
+          #'(lambda ()
              (ibuffer-switch-to-saved-filter-groups "home")
              (ibuffer-auto-mode 1)))
 

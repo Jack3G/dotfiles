@@ -64,7 +64,17 @@
   :config
   (projectile-mode +1))
 
-(use-package calfw)
+(use-package lsp-mode)
+
+(use-package company
+  :config
+  (global-company-mode 1))
+
+(use-package flycheck
+  :config
+  (global-flycheck-mode 1))
+
+(use-package flycheck-rust)
 
 
 ;;; languages

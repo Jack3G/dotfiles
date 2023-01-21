@@ -97,9 +97,8 @@
 
 ;;; looks
 (use-package catppuccin-theme
-  :config
+  :init
   (setq catppuccin-flavour 'macchiato)
-  (catppuccin-reload)
   :after autothemer)
 
 (use-package rainbow-delimiters

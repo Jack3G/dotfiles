@@ -40,6 +40,17 @@
 
 (use-package magit)
 
+(use-package diff-hl
+  :after magit
+  :config
+  (unless vc-handled-backends
+    (message "vc-handled-backends is nil. diff-hl won't work without it!"))
+  (global-diff-hl-mode)
+
+  :hook
+  (magit-pre-refresh-hook . diff-hl-magit-pre-refresh)
+  (magit-post-refresh-hook . diff-hl-magit-post-refresh))
+
 (use-package dashboard
   :init
   (setq dashboard-startup-banner 'logo)

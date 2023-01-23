@@ -74,7 +74,13 @@
   :config
   (global-flycheck-mode 1))
 
-(use-package flycheck-rust)
+(use-package flycheck-rust
+  :hook (rust-mode . flycheck-rust-setup))
+
+(use-package doom-modeline
+  :config
+  (doom-modeline-mode 1)
+  :after all-the-icons)
 
 
 ;;; languages

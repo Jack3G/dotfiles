@@ -47,6 +47,9 @@
     (message "vc-handled-backends is nil. diff-hl won't work without it!"))
   (global-diff-hl-mode)
 
+  ;; Setting this here bc it's only because of diff-hl that I'm disabling it
+  (setq flycheck-indication-mode nil)
+
   :hook
   (magit-pre-refresh-hook . diff-hl-magit-pre-refresh)
   (magit-post-refresh-hook . diff-hl-magit-post-refresh))

@@ -1,0 +1,17 @@
+#+BEGIN_SRC
+
+                                 _______________________________
+                   .(           / You've travelled far soldier. \
+                  /%/\          \ Rest a while.                 /
+                 (%(%))          -------------------------------
+                .-'..`-.                \   ^__^
+                `-'.'`-'dd               \  (oo)\_______
+                                            (__)\       )\/\
+                                                ||----w |
+                                                ||     ||
+
+
+Screenshot:
+#+END_SRC
+
+[[file:Pictures/20230130_17h15m56s_grim.png]]

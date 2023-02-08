@@ -96,6 +96,10 @@
   (doom-modeline-mode 1)
   :after all-the-icons)
 
+(use-package editorconfig
+  :config
+  (editorconfig-mode 1))
+
 
 ;;; languages
 (use-package lua-mode)

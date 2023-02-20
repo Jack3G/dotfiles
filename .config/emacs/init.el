@@ -120,6 +120,9 @@
 
 (use-package yaml-mode)
 
+(use-package mermaid-mode)
+(use-package ob-mermaid)
+
 
 ;;; looks
 (use-package catppuccin-theme
@@ -231,6 +234,13 @@
              (ibuffer-auto-mode 1)))
 
 (setq ibuffer-expert t)
+
+
+(setq ob-mermaid-cli-path "~/Programs/nodejs/mmdc.cmd")
+
+(org-babel-do-load-languages
+ 'org-babel-load-languages
+ '((mermaid . t)))
 
 
 ;; https://stackoverflow.com/a/9697222

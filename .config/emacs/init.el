@@ -161,12 +161,17 @@
 (load-theme 'doom-one t)
 
 (defun config-setup-fonts ()
+  "Set up all of the fonts for my config."
   (if (eq system-type 'windows-nt)
       (set-face-attribute 'default nil :font "JetBrainsMono Nerd Font" :height 120)
     (set-face-attribute 'default nil :font "JetBrainsMono" :height 120))
   ;; (set-face-attribute 'variable-pitch nil :font "Lora" :height 130))
   ;; (set-face-attribute 'variable-pitch nil :font "Source Sans Pro" :height 135))
-  (set-face-attribute 'variable-pitch nil :font "IBM Plex Serif" :height 130))
+  (set-face-attribute 'variable-pitch nil :font "IBM Plex Serif" :height 130)
+
+  (when (member "Noto Emoji" (font-family-list))
+    (set-fontset-font
+     t 'symbol (font-spec :family "Noto Emoji") nil 'prepend)))
 
 (if (daemonp)
     (add-hook 'after-make-frame-functions
@@ -234,6 +239,9 @@
              (ibuffer-auto-mode 1)))
 
 (setq ibuffer-expert t)
+
+
+(put 'dired-find-alternate-file 'disabled nil)
 
 
 (setq ob-mermaid-cli-path "~/Programs/nodejs/mmdc.cmd")

@@ -6,7 +6,7 @@
 [[ $- != *i* ]] && return
 
 
-export EDITOR=nvim
+export EDITOR=emacsclient
 
 
 # PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
@@ -19,4 +19,4 @@ source /usr/share/nnn/quitcd/quitcd.bash_zsh
 alias ls="exa -la --icons --git --group-directories-first"
 alias dotfiles="git --work-tree $HOME --git-dir $HOME/dotfiles"
 alias du="du --summarize --human-readable"
-alias emc="emacsclient --no-wait"
+alias emc="emacsclient"

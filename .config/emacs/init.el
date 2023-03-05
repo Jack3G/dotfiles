@@ -197,6 +197,8 @@
 
 (setq-default fill-column 80)
 
+(setq sentence-end-double-space nil)
+
 (setq
  scroll-conservatively 10000
  scroll-margin 2)
@@ -285,3 +287,4 @@ region."
 (evil-define-key 'normal 'global (kbd "<leader>p") 'projectile-command-map)
 
 (global-set-key (kbd "C-x C-b") 'ibuffer)
+(put 'dired-find-alternate-file 'disabled nil)

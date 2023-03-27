@@ -11,7 +11,9 @@
                                                 ||     ||
 
 
-Screenshot:
+Screenshots:
 #+END_SRC
 
 [[file:Pictures/20230130_17h15m56s_grim.png]]
+[[file:Pictures/20230327_20h49m31s_grim.png]]
+[[file:Pictures/20230327_20h50m01s_grim.png]]

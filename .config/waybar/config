@@ -28,9 +28,12 @@
         "sway/language",
         "battery",
         "battery#bat2",
+        "custom/notifications",
         "clock",
-        "tray"
+        "tray",
     ],
+
+
     // Modules configuration
     "wlr/workspaces": {
         "disable-scroll": true,
@@ -196,6 +199,7 @@
         },
         "on-click": "pavucontrol"
     },
+
     "custom/media": {
         "format": "{icon} {}",
         "return-type": "json",
@@ -208,8 +212,17 @@
         "exec": "$HOME/.config/waybar/mediaplayer.py 2> /dev/null" // Script in resources folder
         // "exec": "$HOME/.config/waybar/mediaplayer.py --player spotify 2> /dev/null" // Filter player based on name
     },
+
     "custom/logo": {
         "format": "",
-    }
-}
+    },
 
+    "custom/notifications": {
+        "format": "{}",
+        "interval": 5,
+
+        "exec": "$HOME/.config/waybar/notifications-count.sh",
+
+        "on-click": "swaync-client -t",
+    },
+}

@@ -84,6 +84,7 @@ button:hover {
 #pulseaudio,
 #wireplumber,
 #custom-media,
+#custom-notifications,
 #tray,
 #mode,
 #idle_inhibitor,
@@ -292,4 +293,29 @@ label:focus {
     padding-right: 13px;
     padding-left: 7px;
     margin-right: 5px;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.7);
+    }
+
+    70% {
+        box-shadow: 0 0 0 10px rgba(255, 255, 255, 0);
+    }
+
+    100% {
+        box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+    }
+}
+
+#custom-notifications {
+    background-color: #666699;
+
+    box-shadow: 0 0 0 0 #FFF;
+    margin: 5px;
+}
+
+#custom-notifications.unread {
+    animation: pulse 1s infinite;
 }

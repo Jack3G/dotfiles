@@ -1,6 +1,6 @@
 (defcfg
-  input (device-file "/dev/input/by-id/usb-Logitech_G512_RGB_MECHANICAL_GAMING_KEYBOARD_028030663336-event-kbd")
-  output (uinput-sink "KMonad Output")
+  input (device-file "/dev/input/by-id/usb-_RPI_Wired_Keyboard_4-event-kbd")
+  output (uinput-sink "KMonad Output a")
 
   fallthrough true
 )
@@ -25,14 +25,26 @@
 )
 
 (defalias
+  a (tap-hold-next-release 200 a lmet)
+  r (tap-hold-next-release 200 r lalt)
+  s (tap-hold-next-release 200 s lctl)
+  t (tap-hold-next-release 200 t lsft)
+ 
+  n (tap-hold-next-release 200 n rsft)
+  e (tap-hold-next-release 200 e rctl)
+  i (tap-hold-next-release 200 i ralt)
+  o (tap-hold-next-release 200 o rmet)
+)
+
+(defalias
   ext (layer-toggle extend)
+  spx (tap-hold-next-release 200 spc (layer-toggle extend))
 
   qwe (layer-switch qwerty)
   col (layer-switch colemak-dh)
 )
 
 (defsrc
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   caps a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
@@ -40,25 +52,29 @@
 )
 
 (deflayer colemak-dh
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
-  tab  q    w    f    p    b    j    l    u    y    ;    [    ]    \
-  lctl a    r    s    t    g    m    n    e    i    o    '    ret
+  tab  q    w    f    p    b    j    l    u    y    '    [    ]    \
+  lctl @a   @r   @s   @t   g    m    @n   @e   @i   @o   ;    ret
   lsft x    c    d    v    z    k    h    ,    .    /    rsft
-  lctl lmet @ext           spc            ralt rmet cmp  rctl
+  lalt lmet @ext           @spx           ralt rmet cmp  rctl
 )
 
 (deflayer qwerty
-  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
   tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
   lctl a    s    d    f    g    h    j    k    l    ;    '    ret
   lsft z    x    c    v    b    n    m    ,    .    /    rsft
-  lctl lmet @ext           spc            ralt rmet cmp  rctl
+  lalt lmet @ext           spc            ralt rmet cmp  rctl
 )
 
 (deflayer extend
-  _    f1   f2   f3   f4   f5   f6   f7   f8   f9   f10  f11  f12  _
-  @atb esc  _    _    _    _    _    home up   end  _    _    _    _
-  _    @sal @ssu @ssh @sct _    _    left down rght del  _    _
-  _    _    _    _    _    _    ret  bspc tab  @qwe @col _
+  @atb esc  @col @qwe _    _    _    home pgdn pgup end  _    _    _
+  _    lmet lalt lctl lsft _    caps left down up   rght _    _
+  _    _    _    _    _    _    ret  ret  bspc del  _    _
+  _    _    esc            _              bspc _    _    del
+)
+
+(deflayer symbols
+  _    1    2    3    4    5    6    7    8    9    0    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _
   _    _    _              _              _    _    _    _
 )

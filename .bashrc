@@ -16,7 +16,7 @@ eval "$(starship init bash)"
 
 scripts=(
     # Only the function defined by this script: `n`, will do the quitcd
-    "/usr/share/nnn/quitcd/quitcd.bash_zsh"
+    "/usr/share/nnn/quitcd/quitcd.bash_sh_zsh"
     "/usr/share/bash-completion/bash_completion"
 )
 

@@ -8,6 +8,7 @@ block = "net"
 
 [[block]]
 block = "cpu"
+interval = 3
 [[block]]
 block = "memory"
 
@@ -19,6 +20,6 @@ block = "battery"
 
 [[block]]
 block = "time"
-format = " $icon $timestamp.datetime(f:'%Y-%m-%d %H:%M:%S %z %s') "
+format = " $icon $timestamp.datetime(f:'%Y-%m-%d %H:%M:%S %z') "
 timezone = ["Australia/Sydney", "UTC"]
 interval = 1

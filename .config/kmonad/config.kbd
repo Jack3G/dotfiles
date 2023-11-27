@@ -39,6 +39,7 @@
 (defalias
   ext (layer-toggle extend)
   spx (tap-hold-next-release 200 spc (layer-toggle extend))
+  fun (layer-toggle function)
 
   qwe (layer-switch qwerty)
   col (layer-switch colemak-dh)
@@ -72,8 +73,16 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   @atb esc  @col @qwe _    _    _    _    home pgdn pgup end  _    _
   _    lmet lalt lctl lsft _    _    caps left down up   rght _
-  _    _    _    _    _    _    _    ret  ret  bspc del  _
+  _    @fun _    _    _    _    _    ret  ret  bspc del  _
   _    _    esc            _              bspc _    _    del
+)
+
+(deflayer function
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    _    _    _    _    _    _
+  _    _    _    _    _    _    _    _    prev vold volu next _
+  _    _    _    _    _    _    _    _    _    brdn brup _
+  _    _    _              _              pp   _    _    _
 )
 
 (deflayer symbols

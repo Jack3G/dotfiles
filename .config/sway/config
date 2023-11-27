@@ -7,6 +7,11 @@ set $term foot
 set $menu tofi-run | xargs swaymsg exec --
 set $locker swaylock -S --clock --effect-blur 3x2
 
+# Set to a backlight device path (that includes files: brightness,
+# max_brightness, etc.). Must have permission to write to brightness.
+set $backlight /sys/class/backlight/intel_backlight/
+set $brightness_adjust_amount 2500
+
 output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
 
 seat seat0 xcursor_theme Bibata-Modern-Ice
@@ -41,8 +46,14 @@ bindsym $mod+d exec $menu
 
 bindsym $mod+F3 exec $locker
 
-# TODO: This
-# bindsym XF86MonBrightnessUp exec
+
+bindsym XF86MonBrightnessUp exec expr $(cat $backlight/brightness) \
+    + $brightness_adjust_amount > $backlight/brightness
+bindsym XF86MonBrightnessDown exec expr $(cat $backlight/brightness) \
+    - $brightness_adjust_amount > $backlight/brightness
+
+bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
 floating_modifier $mod normal
 

@@ -27,12 +27,20 @@ input type:touchpad {
 
 input "2:14:ETPS/2_Elantech_Touchpad" {
     scroll_factor 0.5
+    pointer_accel 0
+}
+
+input type:pointer {
+    pointer_accel -0.8
 }
 
 input type:keyboard {
     # xkb_options ctrl:nocaps
     # xkb_layout us
     # xkb_variant colemak_dh
+
+    repeat_delay 300
+    repeat_rate 40
 }
 
 

@@ -53,6 +53,7 @@ bindsym $mod+Shift+c kill
 bindsym $mod+d exec $menu
 
 bindsym $mod+F3 exec $locker
+bindsym --locked $mod+Shift+F3 exec systemctl suspend
 
 
 bindsym XF86MonBrightnessUp exec expr $(cat $backlight/brightness) \
@@ -68,7 +69,7 @@ floating_modifier $mod normal
 # Reload the configuration file
 bindsym $mod+Ctrl+r reload
 
-bindsym $mod+Shift+q exec swaynag -t warning -m 'You pressed the exit shortcut. Do you really want to exit sway? This will end your Wayland session.' -B 'Yes, exit sway' 'swaymsg exit'
+bindsym $mod+Shift+q exit
 
 # Moving around:
 

@@ -5,14 +5,14 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu tofi-run | xargs swaymsg exec --
-set $locker swaylock -S --clock --effect-blur 3x2
+set $locker swaylock --clock
 
 # Set to a backlight device path (that includes files: brightness,
 # max_brightness, etc.). Must have permission to write to brightness.
 set $backlight /sys/class/backlight/intel_backlight/
 set $brightness_adjust_amount 2500
 
-output * bg /usr/share/backgrounds/sway/Sway_Wallpaper_Blue_1920x1080.png fill
+exec ~/.config/wallpaper-init.sh
 
 seat seat0 xcursor_theme Bibata-Modern-Ice
 

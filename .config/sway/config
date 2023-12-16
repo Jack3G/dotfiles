@@ -38,6 +38,7 @@ input type:keyboard {
     # xkb_options ctrl:nocaps
     # xkb_layout us
     # xkb_variant colemak_dh
+    xkb_options compose:menu
 
     repeat_delay 300
     repeat_rate 40

@@ -2,6 +2,9 @@
   input (device-file "/dev/input/by-id/usb-_RPI_Wired_Keyboard_4-event-kbd")
   output (uinput-sink "KMonad Output a")
 
+  #| Needs compose:menu set on the system |#
+  cmp-seq compose
+
   fallthrough true
 )
 
@@ -40,6 +43,7 @@
   ext (layer-toggle extend)
   spx (tap-hold-next-release 200 spc (layer-toggle extend))
   fun (layer-toggle function)
+  com (around-next (layer-toggle compose))
 
   qwe (layer-switch qwerty)
   col (layer-switch colemak-dh)
@@ -73,7 +77,7 @@
   _    _    _    _    _    _    _    _    _    _    _    _    _    _
   @atb esc  @col @qwe _    _    _    _    home pgdn pgup end  _    _
   _    lmet lalt lctl lsft _    _    caps left down up   rght _
-  _    @fun _    _    _    _    _    ret  ret  bspc del  _
+  _    @fun @com _    _    _    _    ret  ret  bspc del  _
   _    _    esc            _              bspc _    _    del
 )
 
@@ -83,6 +87,14 @@
   _    _    _    _    _    _    _    _    prev vold volu next _
   _    _    _    _    _    _    _    _    _    brdn brup _
   _    _    _              _              pp   _    _    _
+)
+
+(deflayer compose
+  _    _    _    _    _    _    _    _    _    _    _    _    ¯    _
+  _    _    _    _    _    _    _    ĵ    _    ŭ    _    _    _    _
+  _    _    _    _    _    ĝ    _    _    _    _    _    _    _
+  _    _    ĉ    _    _    _    _    _    ĥ    _    _    _
+  _    _    _              _              _    _    _    _
 )
 
 (deflayer symbols

@@ -65,6 +65,9 @@ bindsym XF86MonBrightnessDown exec expr $(cat $backlight/brightness) \
 bindsym XF86AudioRaiseVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 
+bindsym $mod+Print exec grim
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | wl-copy
+
 floating_modifier $mod normal
 
 # Reload the configuration file

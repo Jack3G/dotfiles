@@ -6,6 +6,7 @@
 [[ $- != *i* ]] && return
 
 
+export HISTCONTROL=ignoreboth
 export NVIM_APPNAME=nvim-next
 export EDITOR=nvim
 

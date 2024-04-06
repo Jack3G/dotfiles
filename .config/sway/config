@@ -87,7 +87,11 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 
-# Workspaces:
+bindsym $mod+Alt+Shift+Left move workspace to output left
+bindsym $mod+Alt+Shift+Down move workspace to output down
+bindsym $mod+Alt+Shift+Up move workspace to output up
+bindsym $mod+Alt+Shift+Right move workspace to output right
+
 bindgesture swipe:3:right workspace next
 bindgesture swipe:3:left workspace prev
 

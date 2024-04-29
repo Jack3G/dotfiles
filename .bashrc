@@ -34,3 +34,20 @@ alias dotf="git --work-tree $HOME --git-dir $HOME/dotfiles"
 alias emc="emacsclient"
 alias blc="bluetoothctl"
 alias man="PAGER='nvim +Man!' man"
+
+
+# funny pipe lol
+countdown() {
+   start_time=$(date +%s)
+   end_time=$((start_time + $1))
+
+   while [ $end_time -gt $(date +%s) ]; do
+      printf "\x1B[1K\rtime left: %s" "$((end_time - $(date +%s)))"
+      sleep 1
+   done
+
+   printf "\nTIME'S UP!!\n"
+   mpv --really-quiet ~/vault/assets/audio/metal_pipe.opus
+}
+
+# vim: set ts=3 sw=3 et:

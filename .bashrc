@@ -16,15 +16,15 @@ eval "$(starship init bash)"
 
 
 scripts=(
-    # Only the function defined by this script: `n`, will do the quitcd
-    "/usr/share/nnn/quitcd/quitcd.bash_sh_zsh"
-    "/usr/share/bash-completion/bash_completion"
+   # Only the function defined by this script: `n`, will do the quitcd
+   "/usr/share/nnn/quitcd/quitcd.bash_sh_zsh"
+   "/usr/share/bash-completion/bash_completion"
 )
 
 for i in ${!scripts[@]}; do
-    if [[ -e ${scripts[$i]} ]]; then
-        source ${scripts[$i]}
-    fi
+   if [[ -e ${scripts[$i]} ]]; then
+      source ${scripts[$i]}
+   fi
 done
 
 
@@ -48,6 +48,17 @@ countdown() {
 
    printf "\nTIME'S UP!!\n"
    mpv --really-quiet ~/vault/assets/audio/metal_pipe.opus
+}
+
+stopwatch() {
+   start_time=$(date +%s)
+
+   while [ 1 ]; do
+      time_taken=$(($(date +%s) - start_time))
+      by_clock=$(date -d@$time_taken -u +%H:%M:%S)
+      printf "\rtime taken: %s or %s" "$time_taken" "$by_clock"
+      sleep 1
+   done
 }
 
 # vim: set ts=3 sw=3 et:

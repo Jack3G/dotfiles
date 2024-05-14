@@ -52,6 +52,7 @@ countdown() {
 
 stopwatch() {
    start_time=$(date +%s)
+   printf "start time: %s\n" $start_time
 
    while [ 1 ]; do
       time_taken=$(($(date +%s) - start_time))
@@ -59,6 +60,62 @@ stopwatch() {
       printf "\rtime taken: %s or %s" "$time_taken" "$by_clock"
       sleep 1
    done
+
+   printf "\n"
+}
+
+
+bar_percentage_scale=4
+
+progress_bar() {
+   current="$1"
+   total="$2"
+
+   # minus the number of extra characters in the line
+   bar_size=$(($(tput cols) - 5 - 1 - ${bar_percentage_scale}))
+
+   percent=$(bc <<< "scale=$bar_percentage_scale; $current / $total" )
+   done=$(bc <<< "scale=0; $bar_size * $percent" )
+   todo=$(bc <<< "scale=0; $bar_size - $done" )
+
+   done_sub_bar=$(printf "%${done}s" | tr " " "#")
+   todo_sub_bar=$(printf "%${todo}s" | tr " " "-")
+
+   # handle the case where done_sub is empty
+   if [ -z $done_sub_bar ]; then
+      printf "\x1B[1K\r [%s] %s" ${todo_sub_bar} ${percent}
+   else
+      # and when it's full
+      if [ -z $todo_sub_bar ]; then
+         # don't print too much. (would go from .999 to 1.000)
+         if (( $(bc <<< "$percent == 1") )); then percent=1; fi
+
+         printf "\x1B[1K\r [%s] %s" ${done_sub_bar} ${percent}
+      else
+         printf "\x1B[1K\r [%s%s] %s" ${done_sub_bar} ${todo_sub_bar} ${percent}
+      fi
+   fi
+}
+
+
+wakeup() {
+   offset="$1"
+
+   wake_duration=43200
+
+   start_time=$(($(date +%s) - offset))
+   end_time=$((start_time + wake_duration))
+
+   progress=0
+
+   while ((progress <= wake_duration)); do
+      progress=$(($(date +%s) - start_time))
+
+      progress_bar $progress $wake_duration
+      sleep 1
+   done
+
+   printf "\n\neep time now\n"
 }
 
 # vim: set ts=3 sw=3 et:

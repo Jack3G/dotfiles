@@ -5,21 +5,35 @@ icons = "material-nf"
 
 [[block]]
 block = "net"
+format = " $icon $speed_down "
+format_alt = " $icon $device "
 
 [[block]]
 block = "cpu"
-interval = 3
-[[block]]
-block = "memory"
+interval = 1
+format = "$icon $utilization "
 
 [[block]]
-block = "sound"
+block = "memory"
+format = "$icon$mem_used.eng(prefix:M) ($mem_used_percents.eng(w:2)) "
 
 [[block]]
 block = "battery"
 
 [[block]]
+block = "sound"
+
+[[block]]
+block = "tea_timer"
+format = "$icon {$minutes:$seconds |}"
+done_cmd = "notify-send 'Timer Finished'"
+# [[block]]
+# block = "pomodoro"
+# notify_cmd = "notify-send '{msg}'"
+# blocking_cmd = false
+
+[[block]]
 block = "time"
-format = " $icon $timestamp.datetime(f:'%Y-%m-%d %H:%M:%S %z %s') "
+format = "$icon $timestamp.datetime(f:'%Y-%m-%d %H:%M:%S %z %s') "
 timezone = ["Australia/Sydney", "UTC"]
 interval = 1

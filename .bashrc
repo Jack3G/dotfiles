@@ -34,6 +34,7 @@ alias dotf="git --work-tree $HOME --git-dir $HOME/dotfiles"
 alias emc="emacsclient"
 alias blc="bluetoothctl"
 alias man="PAGER='nvim +Man!' man"
+alias pfetch-kitty="clear; echo; PF_ASCII=catppuccin pfetch"
 
 
 # funny pipe lol

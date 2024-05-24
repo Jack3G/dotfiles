@@ -5,18 +5,14 @@ set $term foot
 # Note: pass the final command to swaymsg so that the resulting window can be opened
 # on the original workspace that the command was run on.
 set $menu tofi-run | xargs swaymsg exec --
-set $locker swaylock --clock
+set $locker swaylock
 
 # Set to a backlight device path (that includes files: brightness,
 # max_brightness, etc.). Must have permission to write to brightness.
 set $backlight /sys/class/backlight/intel_backlight/
 set $brightness_adjust_amount 2500
 
-exec ~/.config/wallpaper-init.sh
 
-seat seat0 xcursor_theme Bibata-Modern-Ice
-
-default_border pixel
 
 input type:touchpad {
     natural_scroll enabled
@@ -162,6 +158,27 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
+
+exec ~/.config/wallpaper-init.sh
+
+seat seat0 xcursor_theme Bibata-Modern-Ice
+
+default_border pixel
+gaps outer 10
+gaps inner 10
+
+
+include catppuccin-mocha
+
+# target                 title     bg    text   indicator  border
+client.focused           $pink     $base $text  $rosewater $pink
+client.focused_inactive  $overlay0 $base $text  $rosewater $overlay0
+client.unfocused         $overlay0 $base $text  $rosewater $overlay0
+client.urgent            $green    $base $peach $overlay0  $green
+client.placeholder       $overlay0 $base $text  $overlay0  $overlay0
+client.background        $base
+
+
 bar {
     position top
     height 20
@@ -171,9 +188,19 @@ bar {
     status_command i3status-rs
 
     colors {
-        statusline #ffffff
-        background #323232
-        inactive_workspace #32323200 #32323200 #5c5c5c
+        # statusline #ffffff
+        # background #323232
+        # inactive_workspace #32323200 #32323200 #5c5c5c
+
+        background         $base
+        statusline         $text
+        focused_statusline $text
+        focused_separator  $base
+        focused_workspace  $green $green $base
+        active_workspace   $pink  $pink  $base
+        inactive_workspace $base  $base  $surface1
+        urgent_workspace   $base  $base  $surface1
+        binding_mode       $base  $base  $surface1
     }
 }
 

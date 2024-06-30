@@ -1,0 +1,3 @@
+[pretty]
+	# a custom pretty format
+	overview = "format:%C(yellow)%h %C(magenta)%an%C(auto), %ar %C(240)[%as]%C(auto)%n%s%n"

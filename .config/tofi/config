@@ -1,0 +1,28 @@
+font = JetBrainsMono Nerd Font Mono
+font-size = 20
+font-variations = "wght 2000"
+
+width = 40%
+height = 100%
+anchor = left
+
+# default is 8. add some for input-background
+padding-top = 12
+clip-to-padding = false
+
+# text-cursor = true
+# text-cursor-style = bar
+# text-cursor-thickness = 4
+# text-cursor-corner-radius = 2
+
+outline-width = 0
+border-width = 0
+
+background-color = #1e1e2edd
+text-color = #cdd6f4
+selection-color = #f5c2e7
+
+input-background = #f5c2e7
+input-background-corner-radius = 6
+input-background-padding = 1, 8, 1, 8
+input-color = #1e1e2e

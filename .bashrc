@@ -10,6 +10,10 @@ export HISTCONTROL=ignoreboth
 export NVIM_APPNAME=nvim-next
 export EDITOR=nvim
 
+if [ -d "$HOME/bin" ]; then
+    PATH="$HOME/bin:$PATH"
+fi
+
 
 # PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
 eval "$(starship init bash)"

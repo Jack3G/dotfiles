@@ -33,6 +33,9 @@ alias emc="emacsclient"
 alias blc="bluetoothctl"
 alias man="PAGER='nvim +Man!' man"
 alias pfetch-kitty="clear; echo; PF_ASCII=catppuccin pfetch"
+alias playsong='sh -c "cd $HOME/Music/library; fd -t f . . | fzf --print0 | xargs -0 mpv"'
+# only uses opustags. still have to do mp{3,4} manually.
+alias songmeta='sh -c "cd $HOME/Music/library; fd -t f \"\\.opus|\\.ogg\" . | fzf --print0 | xargs -0 "opustags {} | grep -v "^METADATA_BLOCK_PICTURE="""'
 
 
 # funny pipe lol

@@ -8,9 +8,11 @@ if [ -d "$HOME/bin" ]; then
     PATH="$HOME/bin:$PATH"
 fi
 
-
-# PS1="\[\033[01;32m\]\u@\h\[\033[01;34m\] \w \$\[\033[00m\] "
-eval "$(starship init bash)"
+if command -v starship > /dev/null; then
+   eval "$(starship init bash)"
+else
+   PS1="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\n \$ "
+fi
 
 
 scripts=(

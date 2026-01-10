@@ -38,9 +38,11 @@ alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 
 alias pfetch-kitty="clear; echo; PF_ASCII=catppuccin pfetch"
-alias playsong='sh -c "cd $HOME/Music/library; fd -t f . . | fzf --print0 | xargs -0 mpv"'
+alias playsong='sh -c "cd $HOME/Music/library; fd -t f . . | fzf --tac --print0 | xargs -0 mpv"'
 # only uses opustags. still have to do mp{3,4} manually.
-alias songmeta='sh -c "cd $HOME/Music/library; fd -t f \"\\.opus|\\.ogg\" . | fzf --print0 | xargs -0 "opustags {} | grep -v "^METADATA_BLOCK_PICTURE="""'
+alias songmeta='sh -c "cd $HOME/Music/library; fd -t f \"\\.opus|\\.ogg\" . | fzf --tac --print0 | xargs -0 "opustags {} | grep -v "^METADATA_BLOCK_PICTURE="""'
+alias songmetaf='sh -c "cd $HOME/Music/library; fd -t f | fzf --tac --print0 | xargs -0 "ffprobe {}""'
+alias songmetaedit='sh -c "cd $HOME/Music/library; fd -t f \"\\.opus|\\.ogg\" . | fzf --tac --print0 | xargs -0 "opustags -ie {}""'
 
 alias webcam="mpv --demuxer-lavf-format=video4linux2 --demuxer-lavf-o-set=input_format=mjpeg av://v4l2:/dev/video0 --profile=low-latency --untimed"
 

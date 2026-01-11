@@ -4,9 +4,10 @@ export HISTCONTROL=ignoreboth
 export NVIM_APPNAME=nvim-next
 export EDITOR=nvim
 
-if [ -d "$HOME/bin" ]; then
-    PATH="$HOME/bin:$PATH"
-fi
+case ":$PATH:" in
+   *":$HOME/.local/bin:"*) :;;
+   *) PATH="$HOME/.local/bin:$PATH";;
+esac
 
 if command -v starship > /dev/null; then
    eval "$(starship init bash)"

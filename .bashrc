@@ -3,6 +3,7 @@
 export HISTCONTROL=ignoreboth
 export NVIM_APPNAME=nvim-next
 export EDITOR=nvim
+export NNN_OPTS="d"
 
 case ":$PATH:" in
    *":$HOME/.local/bin:"*) :;;
@@ -34,12 +35,15 @@ alias dotf="git --work-tree $HOME --git-dir $HOME/dotfiles"
 # alias du="du --summarize --human-readable"
 alias emc="emacsclient"
 alias blc="bluetoothctl"
+alias simg="swayimg"
+alias wlc="wl-copy"
+alias wlp="wl-paste"
 alias man="PAGER='nvim +Man!' man"
 alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
 
 alias pfetch-kitty="clear; echo; PF_ASCII=catppuccin pfetch"
-alias playsong='sh -c "cd $HOME/Music/library; fd -t f . . | fzf --tac --print0 | xargs -0 mpv"'
+alias playsong='sh -c "cd $HOME/Music/library; fd -t f . . | fzf -m --tac --print0 | xargs -0 mpv"'
 # only uses opustags. still have to do mp{3,4} manually.
 alias songmeta='sh -c "cd $HOME/Music/library; fd -t f \"\\.opus|\\.ogg\" . | fzf --tac --print0 | xargs -0 "opustags {} | grep -v "^METADATA_BLOCK_PICTURE="""'
 alias songmetaf='sh -c "cd $HOME/Music/library; fd -t f | fzf --tac --print0 | xargs -0 "ffprobe {}""'

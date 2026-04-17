@@ -16,6 +16,18 @@ else
    PS1="\n\[\033[01;32m\]\u@\h\[\033[01;34m\] \w\[\033[00m\]\n \$ "
 fi
 
+# start ssh agent, or point this shell to an existing one.
+# this limits you to only one ssh-agent at a time.
+if command -v ssh-agent; then
+   if [ -z "$(pgrep ssh-agent)" ]; then
+      rm -f ~/.ssh/agent/*
+      eval "$(ssh-agent -s)" > /dev/null
+   else
+      export SSH_AGENT_PID=$(pgrep ssh-agent)
+      export SSH_AUTH_SOCK=$(find ~/.ssh/agent/* -name *.agent.*)
+   fi
+fi
+
 
 scripts=(
    # Only the function defined by this script: `n`, will do the quitcd
@@ -38,6 +50,7 @@ alias blc="bluetoothctl"
 alias simg="swayimg"
 alias wlc="wl-copy"
 alias wlp="wl-paste"
+alias e="$EDITOR"
 alias man="PAGER='nvim +Man!' man"
 alias ffmpeg="ffmpeg -hide_banner"
 alias ffprobe="ffprobe -hide_banner"
